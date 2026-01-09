@@ -14,8 +14,8 @@ CPU     | Octa-core (2x2.2 GHz Kryo 660 Gold & 6x1.7 GHz Kryo 660 Silver)
 Chipset | Qualcomm SM6375 Snapdragon 695 5G (6 nm)
 GPU     | Adreno 619
 Shipped | Android 13, OxygenOS 13.1
-Storage | 128GB 8GB RAM, 256GB 8GB RAM
- 	    | UFS 2.2
+Storage | 128GB 8GB RAM, 256GB 8GB RAM [ UFS 2.2
+ 	    
 Battery | Li-Po 5000 mAh (67W wired, 80% in 30 min)
 Display | IPS LCD, 120Hz, 550 nits (typ), 680 nits (peak)
         | 6.72 inches, 109.6 cm2 (~87.1% screen-to-body ratio)
