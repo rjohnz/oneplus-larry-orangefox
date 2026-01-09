@@ -90,10 +90,6 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/qcom-caf/bootctrl
 
-# fstab
-PRODUCT_PACKAGES += \
-    fstab.default.vendor_ramdisk
-
 # API
 PRODUCT_SHIPPING_API_LEVEL  := 30
 PRODUCT_TARGET_VNDK_VERSION := 31
