@@ -1,4 +1,4 @@
-### OrangeFox/TWRP device tree for OnePlus Nord CE 3 Lite 5G 
+### OrangeFox device tree for OnePlus Nord CE 3 Lite 5G 
 
 =========================================
 
