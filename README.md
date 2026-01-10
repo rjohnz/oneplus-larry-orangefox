@@ -8,12 +8,12 @@ OnePlus Nord CE 3 Lite 5G  was announced and released in 2023, April 04.
 
 Works :
 
-Flashing Custom Rom
-Buttons
-Touchscreen
-Decryption
-Mtp/Fastbootd
-Otg
+*Flashing Custom Rom
+*Buttons
+*Touchscreen
+*Decryption
+*Mtp/Fastbootd
+*Otg
 
 ### Device specifications
 
