@@ -36,6 +36,4 @@ Video 	1080p@30fps
 Selfie camera 	Single 	16 MP, f/2.4, (wide), 1.0µm
 Features 	HDR, panorama
 Video 	1080p@30fps
-        |  |  |
-Network    Technology 	
-GSM / HSPA / LTE / 5G
+      
