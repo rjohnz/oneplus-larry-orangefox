@@ -19,6 +19,7 @@ Works :
 
 Basic   | Spec Sheet
 -------:|:-------------------------
+Network |Technology GSM / HSPA / LTE / 5G 2G bands GSM 850 / 900 / 1800 / 1900 
 CPU     | Octa-core (2x2.2 GHz Kryo 660 Gold & 6x1.7 GHz Kryo 660 Silver)
 Chipset | Qualcomm SM6375 Snapdragon 695 5G (6 nm)
 GPU     | Adreno 619
