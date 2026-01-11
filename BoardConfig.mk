@@ -150,6 +150,7 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # TWRP specific build flags
 RECOVERY_SDCARD_ON_DATA := true
+TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_USE_LEGACY_BATTERY_SERVICES := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone50/temp"
@@ -157,7 +158,6 @@ TW_THEME := portrait_hdpi
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_DEFAULT_BRIGHTNESS := 480
 TW_MAX_BRIGHTNESS := 2047
-TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
 TW_FRAMERATE := 120
 TW_EXCLUDE_APEX := true
