@@ -22,6 +22,6 @@ export OF_FLASHLIGHT_ENABLE=0
 export OF_SCREEN_H=2400
 export OF_MAINTAINER=RJohn
 source build/envsetup.sh
-lunch twrp_OP5958L1-eng && mka adbd bootimage
+lunch twrp_larry-eng && mka adbd bootimage
 
 
