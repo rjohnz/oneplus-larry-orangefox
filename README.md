@@ -37,7 +37,7 @@ These are my personal builds and no way do i hold responsibility if you messes u
 - [X] And many more
 
 #### Credits
-- TWRP team and everyone involved for their amazing work.
+- TWRP/OrangeFox team and everyone involved for their amazing work.
 
 ## Device picture
 
