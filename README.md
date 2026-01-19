@@ -1,8 +1,8 @@
-### TWRP vendor_boot device tree for OnePlus Nord CE3 Lite 5G (larry)
+### OrangeFox device tree for OnePlus Nord CE3 Lite 5G (larry)
 
 Announced 2023, April 04 Available. Released 2023, April 11
 
-## Disclaimer - Unofficial TWRP!
+## Disclaimer - Unofficial OrangeFox Build!
 These are my personal builds and no way do i hold responsibility if you messes up your device proceed at your own risk.
 
 ### Device specifications
@@ -37,7 +37,7 @@ These are my personal builds and no way do i hold responsibility if you messes u
 - [X] And many more
 
 #### Credits
-- TWRP team and everyone involved for their amazing work.
+- TWRP/OrangeFox team and everyone involved for their amazing work.
 
 ## Device picture
 
