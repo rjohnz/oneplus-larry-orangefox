@@ -4,9 +4,14 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
+# Copyright (C) 2024 The OrangeFox Recovery Project
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/twrp_OP5958L1.mk
+    $(LOCAL_DIR)/twrp_larry.mk
 
 COMMON_LUNCH_CHOICES := \
-    twrp_OP5958L1-eng
+    twrp_larry-user \
+    twrp_larry-userdebug \
+    twrp_larry-eng
