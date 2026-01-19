@@ -1,42 +1,44 @@
-### TWRP device tree for OnePlus Nord CE 3 Lite 5G .....
+### TWRP vendor_boot device tree for OnePlus Nord CE3 Lite 5G (larry)
 
-=========================================
+Announced 2023, April 04 Available. Released 2023, April 11
 
-OnePlus Nord CE 3 Lite 5G (CPH2467,CPH2465) 
-
-OnePlus Nord CE 3 Lite 5G  was announced and released in 2023, April 04.
-
-Works :
-
-| Flashing Custom Rom
-| Buttons
-| Touchscreen
-| Decryption
-| Mtp/Fastbootd
-| Otg
+## Disclaimer - Unofficial TWRP!
+These are my personal builds and no way do i hold responsibility if you messes up your device proceed at your own risk.
 
 ### Device specifications
 
-Basic   | Spec Sheet
--------:|:-------------------------
-CPU     | Octa-core (2x2.2 GHz Kryo 660 Gold & 6x1.7 GHz Kryo 660 Silver)
-Chipset | Qualcomm SM6375 Snapdragon 695 5G (6 nm)
-GPU     | Adreno 619
-Shipped | Android 13, OxygenOS 13.1
-Storage | 128GB 8GB RAM, 256GB 8GB RAM | UFS 2.2
-Battery | Li-Po 5000 mAh (67W wired, 80% in 30 min)
-Display | IPS LCD, 120Hz, 550 nits (typ), 680 nits (peak)
-        | 6.72 inches, 109.6 cm2 (~87.1% screen-to-body ratio)
-        | 1080 x 2400 pixels, 20:9 ratio (~391 ppi density)
-        |  |  |
-Main Camera  Triple 108 MP, f/1.8, (wide), 1/1.67", 0.64µm, PDAF
-2 MP, f/2.4, (macro)
-2 MP, f/2.4, (depth)
-Features 	LED flash, HDR, panorama
-Video 	1080p@30fps
-Selfie camera 	Single 	16 MP, f/2.4, (wide), 1.0µm
-Features 	HDR, panorama
-Video 	1080p@30fps
-        |  |  |
-Network    Technology 	
-GSM / HSPA / LTE / 5G
+| Feature                 | Specification                                                                  |
+| :---------------------- | :------------------------------------------------------------------------------|
+| Chipset                 | Qualcomm SM6375 Snapdragon 695 5G (6 nm)                                       |
+| CPU                     | Octa-core (2x2.2 GHz Kryo 660 Gold & 6x1.7 GHz Kryo 660 Silver)                |
+| GPU                     | Adreno 619                                                                     |
+| Memory                  | 8GB                                                                            |
+| Shipped Android Version | Android 13,OxygenOS 13.1                                                       |
+| Storage                 | 256GB UFS 2.2                                                                  |
+| SIM                     | Dual Nano-SIM + Nano-SIM                                                       |
+| Battery                 | Li-Po 5000 mAh non-removable 67W wired                                         |
+| Dimensions              | 165.5 x 76 x 8.3 mm (6.52 x 2.99 x 0.33 in)                                    |
+| Display                 | IPS LCD, 120Hz, 550 nits (typ),680 nits (peak)                                 |
+| Main Camera             | 108 MP, f/1.8, (wide), 1/1.67", 0.64µm, PDAF 2 MP (macro) Auxiliary lens       |
+| Selfie Camera           | 16 MP, f/2.4, (wide), 1.0µm HDR, panorama                                      |
+| Fingerprint             | side-mounted                                                                   |
+| Sensors                 | Fingerprint (side-mounted), accelerometer, gyro, proximity, compass            |
+
+#### Working
+- [X] Flashing Custom ROMs
+- [X] ADB (+ sideload)
+- [X] Backup/Restore
+- [X] MTP/Fastbootd
+- [X] Decryption
+- [X] Touch
+- [X] OTG
+- [X] Flashing zip
+- [X] Vibrator
+- [X] And many more
+
+#### Credits
+- TWRP team and everyone involved for their amazing work.
+
+## Device picture
+
+![OnePlus Nord CE3 Lite 5G](https://oasis.opstatics.com/content/dam/oasis/page/2023/global/product/larry/specs/product-black.png)
