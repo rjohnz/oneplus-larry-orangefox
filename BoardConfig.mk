@@ -43,11 +43,8 @@ TARGET_BOOTLOADER_BOARD_NAME := holi
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 
-# Assert
-TARGET_OTA_ASSERT_DEVICE := OP5958,OP5958L1,CPH2467,CPH2465,CPH2513,CPH2515
-
 # Kernel
-BOARD_BOOT_HEADER_VERSION := 3
+BOARD_BOOTIMG_HEADER_VERSION := 3
 BOARD_KERNEL_CMDLINE := \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
@@ -60,8 +57,7 @@ BOARD_KERNEL_CMDLINE := \
     service_locator.enable=1 \
     swiotlb=0 \
     iptable_raw.raw_before_defrag=1 \
-    ip6table_raw.raw_before_defrag=1 \
-    androidboot.selinux=permissive
+    ip6table_raw.raw_before_defrag=1 
 
 BOARD_DTB_OFFSET         := 0x01f00000
 BOARD_KERNEL_BASE        := 0x00000000
@@ -79,7 +75,7 @@ BOARD_MKBOOTIMG_ARGS += \
     --kernel_offset $(BOARD_KERNEL_OFFSET) \
     --dtb_offset $(BOARD_DTB_OFFSET) \
     --dtb $(TARGET_PREBUILT_DTB) \
-    --header_version $(BOARD_BOOT_HEADER_VERSION)
+    --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
     
 BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_SOURCE    := kernel/oneplus/sm6375
@@ -110,10 +106,14 @@ BOARD_INCLUDE_RECOVERY_DTBO := true
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
+BOARD_AVB_VBMETA_SYSTEM := product system system_ext
+BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
+BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
 # Partitions
-BOARD_PRODUCTIMAGE_MINIMAL_PARTITION_RESERVED_SIZE := false
--include vendor/lineage/config/BoardConfigReservedSize.mk
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_USES_SYSTEM_EXTIMAGE := true
 BOARD_USES_PRODUCTIMAGE := true
@@ -128,7 +128,7 @@ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 # Dynamic Partition
 BOARD_SUPER_PARTITION_SIZE := 9126805504 
 BOARD_SUPER_PARTITION_GROUPS := oneplus_dynamic_partitions
-BOARD_ONEPLUS_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor vendor_dlkm odm
+BOARD_ONEPLUS_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor product system_ext odm vendor_dlkm odm_dlkm
 BOARD_ONEPLUS_DYNAMIC_PARTITIONS_SIZE := 9122611200 # BOARD_SUPER_PARTITION_SIZE - 4MB
 
 # Workaround for error copying vendor files to recovery ramdisk
@@ -145,7 +145,7 @@ BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 BOARD_USES_METADATA_PARTITION := true
 
 # Platform
-TARGET_BOARD_PLATFORM := sm6375
+TARGET_BOARD_PLATFORM := holi
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno619
 TARGET_USES_HARDWARE_QCOM_BOOTCTRL := true
@@ -166,14 +166,12 @@ TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery.wipe
 
 # Extras
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # TWRP specific build flags
 RECOVERY_SDCARD_ON_DATA := true
-TW_USE_LEGACY_BATTERY_SERVICES := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
-TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone50/temp"
 TW_THEME := portrait_hdpi
-TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_DEFAULT_BRIGHTNESS := 480
 TW_MAX_BRIGHTNESS := 2047
 TW_EXCLUDE_DEFAULT_USB_INIT := true
@@ -193,14 +191,21 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_HAS_EDL_MODE := true
 TW_BATTERY_SYSFS_WAIT_SECONDS := 5
 TW_PREPARE_DATA_MEDIA_EARLY := true
+TW_USE_LEGACY_BATTERY_SERVICES := true
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
 TW_BACKUP_EXCLUSIONS := /data/fonts
 TW_BACKUP_EXCLUSIONS := /data/nandswap
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone50/temp"
+
 TW_OVERRIDE_SYSTEM_PROPS := \
     "ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental"
-TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
+
 TW_LOAD_PREBUILT_MODULES := true
-TW_LOAD_VENDOR_MODULES := "q6_pdr_dlkm.ko q6_notifier_dlkm.ko snd_event_dlkm.ko apr_dlkm.ko adsp_loader_dlkm.ko"
+TW_LOAD_VENDOR_MODULES := "q6_pdr_dlkm.ko q6_notifier_dlkm.ko snd_event_dlkm.ko oplus_charger_present.ko apr_dlkm.ko adsp_loader_dlkm.ko"
+
+TW_LOAD_VENDOR_BOOT_MODULES := true
+TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 
 # System as root
 BOARD_ROOT_EXTRA_FOLDERS := bluetooth dsp firmware persist
@@ -212,7 +217,6 @@ TARGET_RECOVERY_DEVICE_MODULES += debuggerd
 TARGET_RECOVERY_DEVICE_MODULES += strace
 RECOVERY_BINARY_SOURCE_FILES += $(TARGET_OUT_EXECUTABLES)/debuggerd
 RECOVERY_BINARY_SOURCE_FILES += $(TARGET_OUT_EXECUTABLES)/strace
-
 
 
 
