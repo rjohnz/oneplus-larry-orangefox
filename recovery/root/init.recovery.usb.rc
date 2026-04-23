@@ -64,9 +64,6 @@ on boot
     write /config/usb_gadget/g1/strings/0x409/product ${vendor.usb.product_string}
     write /config/usb_gadget/g2/strings/0x409/product ${vendor.usb.product_string}
 
-    # OTG
-    write /sys/class/oplus_chg/usb/otg_switch 1
-    
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
     write /sys/class/udc/${ro.boot.usbcontroller}/device/../mode peripheral
@@ -142,4 +139,3 @@ on property:sys.usb.ffs.ready=1 && property:sys.usb.config=fastboot && property:
     symlink /config/usb_gadget/g1/functions/ffs.fastboot /config/usb_gadget/g1/configs/b.1/f1
     write /config/usb_gadget/g1/UDC ${sys.usb.controller}
     setprop sys.usb.state ${sys.usb.config}
-

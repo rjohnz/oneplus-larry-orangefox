@@ -48,6 +48,15 @@ service overrideprops /system/bin/overrideprops.sh
     oneshot
     seclabel u:r:recovery:s0
 
+# Set SELinux to Permissive
+on early-init
+    write /sys/fs/selinux/enforce 0
+    write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
+
+on early-fs
+    write /proc/sys/kernel/sched_lib_name "recovery,magiskboot,Updater,updater,update_engine_sideload"
+    write /proc/sys/kernel/sched_lib_mask_force 255
+
 on init
     write /sys/class/backlight/panel0-backlight/brightness 200
     setprop sys.usb.configfs 1
@@ -55,16 +64,11 @@ on init
     setprop prepdecrypt.setpatch true
     
 on fs
-    export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-
-on fs
-    chmod 0660 /dev/qseecom
-    chown system drmrpc /dev/qseecom
-    chmod 0664 /dev/ion
-    chown system system /dev/ion
-    install_keyring
+    # Mount firmware
+    mkdir /firmware
+    mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware ro 
 
 on post-fs
     start boot-hal-1-1
@@ -75,14 +79,13 @@ on boot
     start health-hal-2-1
     start vendor.qti.vibrator
     setprop sys.usb.config adb
+    # OTG
+    write /sys/class/oplus_chg/usb/otg_switch 1
 
 on property:twrp.modules.loaded=true
     # Mount persist
     mkdir /mnt/vendor/persist
     mount ext4 /dev/block/bootdevice/by-name/persist /mnt/vendor/persist ro
-    # Mount firmware
-    mkdir /firmware
-    mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware ro 
     # Load ADSP firmware for PMIC
     wait /sys/kernel/boot_adsp/boot
     write /sys/kernel/boot_adsp/boot 1
@@ -92,6 +95,10 @@ on property:twrp.modules.loaded=true
 on property:twrp.all.users.decrypted=true
     umount /mnt/vendor/persist
 
+on property:ro.boot.usbcontroller=*
+    setprop sys.usb.controller ${ro.boot.usbcontroller}
+    wait /sys/bus/platform/devices/${ro.boot.usb.dwc3_msm:-4e00000.ssusb}/mode
+    write /sys/bus/platform/devices/${ro.boot.usb.dwc3_msm:-4e00000.ssusb}/mode peripheral
+    wait /sys/class/udc/${ro.boot.usbcontroller} 1
+
 on property:init.svc.fastbootd=running
-
-
