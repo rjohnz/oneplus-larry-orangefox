@@ -41,4 +41,4 @@ These are my personal builds and no way do i hold responsibility if you messes u
 
 ## Device picture
 
-![OnePlus Nord CE3 Lite 5G](https://tekpone.com/cdn/shop/files/oneplusnord.jpg?v=1683964158&width=1946)
+![OnePlus Nord CE3 Lite 5G](https://tekpone.com/cdn/shop/files/oneplusnord1.jpg?v=1683964158&width=1946)
